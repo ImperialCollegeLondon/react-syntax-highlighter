@@ -68,7 +68,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var availableStyles = ['agate', 'androidstudio', 'arduino-light', 'arta', 'ascetic', 'atelier-cave-dark', 'atelier-cave-light', 'atelier-dune-dark', 'atelier-dune-light', 'atelier-estuary-dark', 'atelier-estuary-light', 'atelier-forest-dark', 'atelier-forest-light', 'atelier-heath-dark', 'atelier-heath-light', 'atelier-lakeside-dark', 'atelier-lakeside-light', 'atelier-plateau-dark', 'atelier-plateau-light', 'atelier-savanna-dark', 'atelier-savanna-light', 'atelier-seaside-dark', 'atelier-seaside-light', 'atelier-sulphurpool-dark', 'atelier-sulphurpool-light', 'brown-paper', 'codepen-embed', 'color-brewer', 'dark', 'darkula', 'default', 'docco', 'far', 'foundation', 'github-gist', 'github', 'googlecode', 'grayscale', 'hopscotch', 'hybrid', 'idea', 'ir-black', 'kimbie.dark', 'kimbie.light', 'magula', 'mono-blue', 'monokai-sublime', 'monokai', 'obsidian', 'paraiso-dark', 'paraiso-light', 'pojoaque', 'pojoaque.jpg', 'railscasts', 'rainbow', 'school-book', 'solarized-dark', 'solarized-light', 'sunburst', 'tomorrow-night-blue', 'tomorrow-night-bright', 'tomorrow-night-eighties', 'tomorrow-night', 'tomorrow', 'vs', 'xcode', 'zenburn'];
+	var availableStyles = ['agate', 'androidstudio', 'arduino-light', 'arta', 'ascetic', 'atelier-cave-dark', 'atelier-cave-light', 'atelier-dune-dark', 'atelier-dune-light', 'atelier-estuary-dark', 'atelier-estuary-light', 'atelier-forest-dark', 'atelier-forest-light', 'atelier-heath-dark', 'atelier-heath-light', 'atelier-lakeside-dark', 'atelier-lakeside-light', 'atelier-plateau-dark', 'atelier-plateau-light', 'atelier-savanna-dark', 'atelier-savanna-light', 'atelier-seaside-dark', 'atelier-seaside-light', 'atelier-sulphurpool-dark', 'atelier-sulphurpool-light', 'brown-paper', 'codepen-embed', 'color-brewer', 'dark', 'darkula', 'default', 'docco', 'far', 'foundation', 'github-gist', 'github', 'googlecode', 'grayscale', 'hopscotch', 'hybrid', 'idea', 'ir-black', 'kimbie.dark', 'kimbie.light', 'magula', 'mono-blue', 'monokai-sublime', 'monokai', 'obsidian', 'paraiso-dark', 'paraiso-light', 'pojoaque', 'railscasts', 'rainbow', 'school-book', 'solarized-dark', 'solarized-light', 'sunburst', 'tomorrow-night-blue', 'tomorrow-night-bright', 'tomorrow-night-eighties', 'tomorrow-night', 'tomorrow', 'vs', 'xcode', 'zenburn'];
 	
 	var Component = function (_React$Component) {
 	  _inherits(Component, _React$Component);
@@ -97,6 +97,14 @@
 	        fontSize: 24,
 	        color: 'aliceblue'
 	      };
+	      var githubLinkStyle = {
+	        fontSize: 24,
+	        fontWeight: 700,
+	        color: 'aliceblue',
+	        position: 'absolute',
+	        right: 20,
+	        top: 20
+	      };
 	      var dropDown = _react2.default.createElement(
 	        'select',
 	        { value: this.state.selected, onChange: function onChange(e) {
@@ -117,6 +125,11 @@
 	          'h1',
 	          { style: h1Style },
 	          'React Syntax Highlighter'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { style: githubLinkStyle, href: 'https://github.com/conorhastings/react-syntax-highlighter', target: '_blank' },
+	          'Github'
 	        ),
 	        _react2.default.createElement(
 	          'h2',
