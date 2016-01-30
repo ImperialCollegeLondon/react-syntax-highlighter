@@ -126,7 +126,7 @@
 	        dropDown,
 	        _react2.default.createElement(
 	          'div',
-	          { style: { backgroundColor: 'gainsboro' } },
+	          null,
 	          _react2.default.createElement(
 	            _dist2.default,
 	            { language: 'javascript', stylesheet: this.state.selected },
@@ -19779,7 +19779,7 @@
 		return function (children) {
 			childrenCount += 1;
 			return children.map(function (child, i) {
-				return createElement(child, style, 'code-segement-' + childrenCount + '-' + i);
+				return createElement(child, style, 'code-segment-' + childrenCount + '-' + i);
 			});
 		};
 	}
@@ -19811,13 +19811,17 @@
 		var lang = __webpack_require__(229)("./" + language);
 		_core2.default.registerLanguage(language, lang);
 		var codeTree = _core2.default.highlight(language, children);
-	
+		var defaultPreStyle = style.hljs || { backgroundColor: '#fff' };
 		return _react2.default.createElement(
 			'pre',
-			props,
-			codeTree.value.map(function (node, i) {
-				return createElement(node, style, 'code-segement' + i);
-			})
+			_extends({ style: defaultPreStyle }, props),
+			_react2.default.createElement(
+				'code',
+				null,
+				codeTree.value.map(function (node, i) {
+					return createElement(node, style, 'code-segement' + i);
+				})
+			)
 		);
 	}
 
