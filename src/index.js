@@ -30,7 +30,6 @@ function createElement(node, style, key) {
 		return <TagName key={key} style={nodeStyle}>{children}</TagName>;
 	}
 }
-
 export default function SyntaxHighlighter(props) {
 	const {language, children, style = defaultStyle} = props;
 	const codeTree = lowlight.highlight(language, children);
