@@ -6,7 +6,7 @@ const Text = ({ children }) => <span>{children}</span>;
 
 const createStyleObject = (classNames, style) => {
 	return classNames.reduce((styleObject, className) => {
-		return {...styleObject, ...style[className]};
+		return { ...styleObject, ...style[className] };
 	}, {});
 }
 
@@ -17,6 +17,7 @@ function createChildren(style) {
 		return children.map((child, i) => createElement(child, style, `code-segment-${childrenCount}-${i}`));
 	}
 }
+
 function createElement(node, style, key) {
 	const { properties, type, tagName, value } = node;
 	if (type === "text") {
@@ -31,12 +32,16 @@ function createElement(node, style, key) {
 	}
 }
 
+export function registerLanguages(languages = {}) {
+  for (let key of Object.keys(languages)) {
+    lowlight.registerLanguage(key, languages[key]);
+  }
+}
+
 export default function SyntaxHighlighter(props) {
-	const {language, children, style = defaultStyle} = props;
-  const languageKey = Object.keys(language)[0];
-  lowlight.registerLanguage(languageKey, language[languageKey]);
-	const codeTree = lowlight.highlight(languageKey, children);
-	const defaultPreStyle = style.hljs || {backgroundColor: '#fff'};
+	const { language, children, style = defaultStyle } = props;
+	const codeTree = lowlight.highlight(language, children);
+	const defaultPreStyle = style.hljs || { backgroundColor: '#fff' };
 	return (
 		<pre {...props} style={defaultPreStyle}>
 			<code>
